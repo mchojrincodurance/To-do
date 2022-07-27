@@ -20,4 +20,8 @@ public class Task {
     public int hashCode() {
         return description.hashCode();
     }
+
+    public boolean isCompleted() {
+        return false;
+    }
 }
