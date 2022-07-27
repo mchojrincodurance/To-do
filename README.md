@@ -10,10 +10,12 @@ Build a simple To-do List with the following features:
 
 Task list should show tasks in this format:
 
+```
 Task            | Completed
 Buy milk        |
 Feed the dog    |   x
 Boil eggs       |
+```
 
 ## Starting point and constraints
 
@@ -26,27 +28,3 @@ interface TaskList {
      void showTasks();
 }
 ```
-
-
-Given I have an empty task list
-And I add a new task "Buy milk"
-When I print my task list
-Then I see:
-
-Task            | Completed
-Buy milk        |
-
-====
-
-Given I have a task list containing a task "Buy milk"
-And another task "Feed the dog"
-And I check the task "Feed the dog"
-When I print my task list
-Then I see:
-
-Task            | Completed
-Buy milk        |
-Feed the dog    |   x
-
-====
-
