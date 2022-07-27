@@ -8,7 +8,16 @@ public class Task {
         this.description = description;
     }
 
-    public boolean equals(Task otherTask) {
-        return this.description.equals(otherTask.description);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return description.equals(task.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return description.hashCode();
     }
 }
