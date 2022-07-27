@@ -37,4 +37,8 @@ public class Task {
     public String toString() {
         return description + "|" + (isCompleted() ? "x" : "");
     }
+
+    public String description() {
+        return description;
+    }
 }

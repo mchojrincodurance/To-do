@@ -9,8 +9,10 @@ public class TaskRepository {
         tasks.add(task);
     }
 
-    public Task findTask(String soughtTask) {
-        return tasks.stream().filter( task -> soughtTask.equals(task) ).findAny().orElse(null);
+    public Task findTask(String taskDescription) {
+        return tasks
+                .stream()
+                .filter( task -> taskDescription.equals(task.description()) ).findAny().orElse(null);
     }
 
     public ArrayList<Task> getTasks() {
