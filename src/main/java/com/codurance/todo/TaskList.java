@@ -1,7 +1,9 @@
+package com.codurance.todo;
+
 public interface TaskList {
     void addTask(String description);
 
-    void completeTask(TaskId id);
+    void completeTask(int id);
 
     void showTasks();
 }
