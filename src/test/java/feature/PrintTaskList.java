@@ -1,5 +1,6 @@
 package feature;
 
+import com.codurance.todo.TaskList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -42,6 +43,10 @@ public class PrintTaskList {
 
     @Test
     public void print_all_tasks() {
+        TaskList taskList = new TaskList();
+
+        // Trigger
+        taskList.showTasks();
 
         // Side effect I want to test
         verify(console).printLine("Task            | Completed");
