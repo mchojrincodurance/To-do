@@ -16,7 +16,9 @@ public class TaskListImplementation implements TaskList {
     public void completeTask(String description) {
         Task task = taskRepository.findTask(description);
 
-        task.complete();
+        if (null != task) {
+            task.complete();
+        }
     }
 
     public void showTasks() {
