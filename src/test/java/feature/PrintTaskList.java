@@ -1,6 +1,7 @@
 package feature;
 
 import com.codurance.todo.TaskList;
+import com.codurance.todo.TaskListImplementation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -40,10 +41,11 @@ public class PrintTaskList {
 
     @Mock
     Console console;
+    private TaskListImplementation taskList;
 
     @Test
     public void print_all_tasks() {
-        TaskList taskList = new TaskList();
+        taskList = new TaskListImplementation();
 
         // Trigger
         taskList.showTasks();
