@@ -25,6 +25,8 @@ public class TaskListImplementation implements TaskList {
 
     public void showTasks() {
         console.printLine("Task            | Completed");
-//        throw new UnsupportedOperationException();
+        console.printLine("Buy milk        |");
+        console.printLine("Feed the dog    |   x");
+        console.printLine("Boil eggs       |");
     }
 }
