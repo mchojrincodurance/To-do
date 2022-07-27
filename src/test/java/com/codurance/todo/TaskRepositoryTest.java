@@ -4,16 +4,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class TaskRepositoryTest {
 
     public static final String A_TASK = "A task";
+    private final TaskRepository taskRepository = new TaskRepository();
 
     @Test
     public void allow_adding_tasks() {
-        TaskRepository taskRepository = new TaskRepository();
-        Task task = new Task(A_TASK);
+        Task task = buildTask();
         taskRepository.add(task);
         assertThat(taskRepository.getTasks(), contains(task));
+    }
+
+    private static Task buildTask() {
+        return new Task(A_TASK);
+    }
+
+    @Test
+    public void find_tasks() {
+        Task task = buildTask();
+        taskRepository.add(task);
+
+        Task foundTask = taskRepository.findTask(A_TASK);
+        assertNotNull(foundTask);
     }
 }
