@@ -2,9 +2,9 @@ package com.codurance.todo;
 
 public class Task {
     private final String description;
+    private boolean complete;
 
-    public Task()
-    {
+    public Task() {
         description = "No description";
     }
 
@@ -27,9 +27,14 @@ public class Task {
     }
 
     public boolean isCompleted() {
-        return true;
+        return complete;
     }
 
     public void complete() {
+        complete = true;
+    }
+
+    public String toString() {
+        return description + "|" + (isCompleted() ? "x" : "");
     }
 }
