@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 class TaskListImplementationShould {
 
     public static final String FIRST_TASK = "A task";
-    private static final String SECOND_TASK = "Another task";
+    @Mock Console console;
     @InjectMocks
     TaskListImplementation taskList;
     @Mock
@@ -47,5 +47,11 @@ class TaskListImplementationShould {
     public void should_not_break_if_task_not_found() {
         taskList.completeTask(FIRST_TASK);
         assertTrue(true);
+    }
+
+    @Test
+    public void use_console_when_printing() {
+        taskList.showTasks();
+        verify(console, atLeastOnce()).printLine(anyString());
     }
 }
