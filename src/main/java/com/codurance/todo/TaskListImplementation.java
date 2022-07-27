@@ -1,5 +1,7 @@
 package com.codurance.todo;
 
+import java.util.ArrayList;
+
 public class TaskListImplementation implements TaskList {
     private final TaskRepository taskRepository;
     private Console console;
@@ -24,9 +26,25 @@ public class TaskListImplementation implements TaskList {
     }
 
     public void showTasks() {
+        printHeader();
+        printTasks();
+    }
+
+    private void printTasks() {
+        for( Task task : getTasks() ) {
+            printTask(task);
+        }
+    }
+
+    private ArrayList<Task> getTasks() {
+        return taskRepository.getTasks();
+    }
+
+    private void printTask(Task task) {
+        console.printLine(task.toString());
+    }
+
+    private void printHeader() {
         console.printLine("Task            | Completed");
-        console.printLine("Buy milk        |");
-        console.printLine("Feed the dog    |   x");
-        console.printLine("Boil eggs       |");
     }
 }
