@@ -28,3 +28,5 @@ interface TaskList {
      void showTasks();
 }
 ```
+
+*Note*: don't add any new methods to the TaskList class
