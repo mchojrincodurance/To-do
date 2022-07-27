@@ -42,4 +42,10 @@ class TaskListImplementationShould {
         verify(taskRepository).findTask(FIRST_TASK);
         verify(firstTask).complete();
     }
+
+    @Test
+    public void should_not_break_if_task_not_found() {
+        taskList.completeTask(FIRST_TASK);
+        assertTrue(true);
+    }
 }
