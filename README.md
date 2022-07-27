@@ -24,7 +24,7 @@ Start with a class with the following interface:
 ```java
 interface TaskList {
      void addTask(String description);
-     void completeTask(TaskId id);
+     void completeTask(String description);
      void showTasks();
 }
 ```

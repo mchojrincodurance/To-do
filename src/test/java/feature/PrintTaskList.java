@@ -47,6 +47,12 @@ public class PrintTaskList {
     public void print_all_tasks() {
         taskList = new TaskListImplementation();
 
+        // Scenario setup
+        taskList.addTask("Buy milk");
+        taskList.addTask("Feed the dog");
+        taskList.addTask("Boil eggs");
+        taskList.completeTask("Feed the dog");
+
         // Trigger
         taskList.showTasks();
 

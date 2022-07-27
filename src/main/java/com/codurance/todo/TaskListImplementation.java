@@ -7,7 +7,7 @@ public class TaskListImplementation implements TaskList {
     }
 
     @Override
-    public void completeTask(int id) {
+    public void completeTask(String description) {
         throw new UnsupportedOperationException();
     }
 
