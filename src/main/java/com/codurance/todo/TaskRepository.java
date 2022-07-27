@@ -10,7 +10,7 @@ public class TaskRepository {
     }
 
     public Task findTask(String firstTask) {
-        return null;
+        return new Task();
     }
 
     public ArrayList<Task> getTasks() {
