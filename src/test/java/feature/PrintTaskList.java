@@ -45,7 +45,7 @@ public class PrintTaskList {
 
     @Test
     public void print_all_tasks() {
-        taskList = new TaskListImplementation(new TaskRepository());
+        taskList = new TaskListImplementation(new TaskRepository(), console );
 
         // Scenario setup
         taskList.addTask("Buy milk");

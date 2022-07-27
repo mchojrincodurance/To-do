@@ -2,9 +2,11 @@ package com.codurance.todo;
 
 public class TaskListImplementation implements TaskList {
     private final TaskRepository taskRepository;
+    private Console console;
 
-    public TaskListImplementation(TaskRepository taskRepository) {
+    public TaskListImplementation(TaskRepository taskRepository, Console console) {
         this.taskRepository = taskRepository;
+        this.console = console;
     }
 
     @Override
@@ -22,6 +24,7 @@ public class TaskListImplementation implements TaskList {
     }
 
     public void showTasks() {
+        console.printLine("Task            | Completed");
 //        throw new UnsupportedOperationException();
     }
 }
