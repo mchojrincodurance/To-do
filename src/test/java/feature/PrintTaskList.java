@@ -1,7 +1,7 @@
 package feature;
 
-import com.codurance.todo.TaskList;
 import com.codurance.todo.TaskListImplementation;
+import com.codurance.todo.TaskRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -45,7 +45,7 @@ public class PrintTaskList {
 
     @Test
     public void print_all_tasks() {
-        taskList = new TaskListImplementation();
+        taskList = new TaskListImplementation(new TaskRepository());
 
         // Scenario setup
         taskList.addTask("Buy milk");
