@@ -1,8 +1,8 @@
 package feature;
 
+import com.codurance.todo.Console;
 import com.codurance.todo.TaskListImplementation;
 import com.codurance.todo.TaskRepository;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
-import com.codurance.todo.Console;
 
 
 //Given I have an empty task list
@@ -67,7 +66,7 @@ public class PrintTaskList {
         // Side effect I want to test
         verify(console).printLine("Task            | Completed");
         verify(console).printLine(firstTask + "|");
-        verify(console).printLine(secondTask + "| x");
+        verify(console).printLine(secondTask + "|x");
         verify(console).printLine(thirdTask + "|");
     }
 }
