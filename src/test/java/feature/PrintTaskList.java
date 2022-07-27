@@ -4,6 +4,8 @@ import com.codurance.todo.TaskListImplementation;
 import com.codurance.todo.TaskRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -43,23 +45,29 @@ public class PrintTaskList {
     Console console;
     private TaskListImplementation taskList;
 
-    @Test
-    public void print_all_tasks() {
+    @ParameterizedTest
+    @CsvSource(
+            {
+                    "Buy milk,Feed the dog,Boil eggs",
+                    "Buy milk,Boil eggs,Feed the dog",
+            }
+    )
+    public void print_all_tasks(String firstTask, String secondTask, String thirdTask) {
         taskList = new TaskListImplementation(new TaskRepository(), console );
 
         // Scenario setup
-        taskList.addTask("Buy milk");
-        taskList.addTask("Feed the dog");
-        taskList.addTask("Boil eggs");
-        taskList.completeTask("Feed the dog");
+        taskList.addTask(firstTask);
+        taskList.addTask(secondTask);
+        taskList.addTask(thirdTask);
+        taskList.completeTask(secondTask);
 
         // Trigger
         taskList.showTasks();
 
         // Side effect I want to test
         verify(console).printLine("Task            | Completed");
-        verify(console).printLine("Buy milk        |");
-        verify(console).printLine("Feed the dog    |   x");
-        verify(console).printLine("Boil eggs       |");
+        verify(console).printLine(firstTask + "|");
+        verify(console).printLine(secondTask + "| x");
+        verify(console).printLine(thirdTask + "|");
     }
 }
