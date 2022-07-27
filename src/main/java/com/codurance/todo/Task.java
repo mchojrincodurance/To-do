@@ -3,6 +3,11 @@ package com.codurance.todo;
 public class Task {
     private final String description;
 
+    public Task()
+    {
+        description = "No description";
+    }
+
     public Task(String description) {
 
         this.description = description;
@@ -22,6 +27,9 @@ public class Task {
     }
 
     public boolean isCompleted() {
-        return false;
+        return true;
+    }
+
+    public void complete() {
     }
 }

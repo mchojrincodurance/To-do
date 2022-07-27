@@ -2,19 +2,21 @@ package com.codurance.todo;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class TaskListImplementationShould {
 
     public static final String FIRST_TASK = "A task";
+    private static final String SECOND_TASK = "Another task";
     @InjectMocks
     TaskListImplementation taskList;
     @Mock
@@ -31,12 +33,13 @@ class TaskListImplementationShould {
 
     @Test
     public void should_allow_marking_tasks_as_completed() {
-        Task task = new Task(FIRST_TASK);
-        when(taskRepository.findTask(FIRST_TASK)).thenReturn(task);
+        Task firstTask = spy(Task.class);
+        when(taskRepository.findTask(FIRST_TASK)).thenReturn(firstTask);
 
         taskList.addTask(FIRST_TASK);
         taskList.completeTask(FIRST_TASK);
 
-        assertTrue(task.isCompleted());
+        verify(taskRepository).findTask(FIRST_TASK);
+        verify(firstTask).complete();
     }
 }

@@ -10,12 +10,13 @@ public class TaskListImplementation implements TaskList {
     @Override
     public void addTask(String description) {
         taskRepository.add(new Task(description));
-//        throw new UnsupportedOperationException();
     }
 
     @Override
     public void completeTask(String description) {
-//        throw new UnsupportedOperationException();
+        Task task = taskRepository.findTask(description);
+
+        task.complete();
     }
 
     public void showTasks() {
