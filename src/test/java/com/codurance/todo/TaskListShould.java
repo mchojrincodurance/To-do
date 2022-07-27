@@ -11,12 +11,12 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class TaskListImplementationShould {
+class TaskListShould {
 
     public static final String FIRST_TASK = "A task";
     @Mock Console console;
     @InjectMocks
-    TaskListImplementation taskList;
+    TaskList taskList;
     @Mock
     TaskRepository taskRepository;
 

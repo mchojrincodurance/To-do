@@ -22,7 +22,7 @@ Boil eggs       |
 Start with a class with the following interface:
 
 ```java
-interface TaskList {
+interface TaskListInterface {
      void addTask(String description);
      void completeTask(String description);
      void showTasks();

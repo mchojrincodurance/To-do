@@ -1,12 +1,11 @@
 package feature;
 
 import com.codurance.todo.Console;
-import com.codurance.todo.TaskListImplementation;
+import com.codurance.todo.TaskList;
 import com.codurance.todo.TaskRepository;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -43,7 +42,6 @@ public class PrintTaskList {
 
     @Mock
     Console console;
-    private TaskListImplementation taskList;
 
     @ParameterizedTest
     @CsvSource(
@@ -53,7 +51,7 @@ public class PrintTaskList {
             }
     )
     public void print_all_tasks(String firstTask, String secondTask, String thirdTask) {
-        taskList = new TaskListImplementation(new TaskRepository(), console );
+        TaskList taskList = new TaskList(new TaskRepository(), console);
 
         // Scenario setup
         taskList.addTask(firstTask);
