@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TaskRepositoryTest {
 
@@ -23,11 +23,16 @@ class TaskRepositoryTest {
     }
 
     @Test
-    public void find_tasks() {
+    public void find_tasks_if_present() {
         Task task = buildTask();
         taskRepository.add(task);
 
         Task foundTask = taskRepository.findTask(A_TASK);
-        assertNotNull(foundTask);
+        assertEquals(foundTask, task);
+    }
+
+    @Test
+    public void return_null_if_task_not_found() {
+        assertNull(taskRepository.findTask(buildTask().toString()));
     }
 }
